@@ -16,10 +16,6 @@ The data the demo relies on can be extracted by running:
 
 ## Running the demo
 
-First be sure to set 
-
-`export COGENT3_NEW_TYPE=1`
-
 The demo can be run with the command:
 
 `uv run piqtree_demo.py`
