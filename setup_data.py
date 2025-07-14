@@ -36,7 +36,7 @@ def extract_data(tar_gz_file: os.PathLike) -> None:
 
 
 def get_alignment(path: os.PathLike) -> Alignment:
-    aln = cogent3.load_aligned_seqs(path, moltype="dna", new_type=True)
+    aln = cogent3.load_aligned_seqs(path, moltype="dna")
     return aln.rename_seqs(lambda x: x.replace("_", "-").split("-")[0].title())
 
 
