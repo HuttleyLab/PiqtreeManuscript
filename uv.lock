@@ -1141,7 +1141,7 @@ wheels = [
 
 [[package]]
 name = "piqtree"
-version = "0.6.0"
+version = "0.6.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cogent3" },
@@ -1149,10 +1149,10 @@ dependencies = [
     { name = "requests" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fe/64/059a2a75e157242d51b36181207230f4ce36c2d18308dde69ad53099f41f/piqtree-0.6.0-cp313-cp313-macosx_13_0_x86_64.whl", hash = "sha256:009fd41393fea707e24146dfff403dcb895037a827094358095c197184f1e4b2", size = 5427187, upload-time = "2025-07-11T01:35:39.282Z" },
-    { url = "https://files.pythonhosted.org/packages/14/f4/bdad6dedfb46727b397133fa586abf150a0f19fefbac4527995ae0685ef3/piqtree-0.6.0-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:e0605a67d51603c6a7880f9bb673e4e16703853ab0933761b2badde3c7afa420", size = 4128441, upload-time = "2025-07-11T01:35:41.02Z" },
-    { url = "https://files.pythonhosted.org/packages/49/64/50614f39c40a580fa54a6f4ae464de4e30a605c1b2ba25c9ed0b21b06b17/piqtree-0.6.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:23c999490772a6294bfae5455f3077afd429c536b196f5ea904d2cf04292759e", size = 4466894, upload-time = "2025-07-11T01:35:42.706Z" },
-    { url = "https://files.pythonhosted.org/packages/95/94/2e4203c97f61bfb3f9f9603d8a8edb8a887e6bd936438a95f9b7cac04950/piqtree-0.6.0-cp313-cp313-win_amd64.whl", hash = "sha256:8a001ef9c0c1add9d9485d7259bd07c22cfe5b176174bb3b43f77ef66ee255cd", size = 6677193, upload-time = "2025-07-11T01:35:44.175Z" },
+    { url = "https://files.pythonhosted.org/packages/74/0e/5a0b568e5c8080b47431bedad9846d60268ef5f41fc92b7239b2a9720449/piqtree-0.6.1-cp313-cp313-macosx_13_0_x86_64.whl", hash = "sha256:78e62718f83603b9d771d81c58e567a88a1e0022602c6ebc4f33c605761beb25", size = 5427185, upload-time = "2025-07-19T06:33:25.181Z" },
+    { url = "https://files.pythonhosted.org/packages/65/90/9bea2031e92d629658f7f160b4d6ca3d4e211f91651e01c0a361b5466784/piqtree-0.6.1-cp313-cp313-macosx_14_0_arm64.whl", hash = "sha256:7e73052a50b2b6cb3038434a59851c1acfcddc432bccb6ea61369d051f229896", size = 4128445, upload-time = "2025-07-19T06:33:26.603Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/25/6ae4b99f850c6d5382467283b070bbd81b1886090c2499d9ac4d979b9d01/piqtree-0.6.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:aacead4bf55d0971d9dbd9935f426f8400d6b8bdf2082e6f6a34c31ca45448d9", size = 4466900, upload-time = "2025-07-19T06:33:28.054Z" },
+    { url = "https://files.pythonhosted.org/packages/66/ca/360231f9105a5b76e18af85855b0a6a7e6164ea2ce6e6c9f03157dc5126f/piqtree-0.6.1-cp313-cp313-win_amd64.whl", hash = "sha256:7f9736ede4ccd870af25418e2f574eb1acd43ebdb98fd178172b6d296491e920", size = 6677198, upload-time = "2025-07-19T06:33:29.446Z" },
 ]
 
 [package.optional-dependencies]
@@ -1176,7 +1176,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "piqtree", extras = ["extra"], specifier = ">=0.6" },
+    { name = "piqtree", extras = ["extra"], specifier = ">=0.6.1" },
     { name = "sc-supertree", specifier = ">=2025.6.25" },
 ]
 
