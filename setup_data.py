@@ -37,13 +37,12 @@ def extract_data(tar_gz_file: os.PathLike) -> None:
 
 def get_alignment(path: os.PathLike) -> Alignment:
     aln = cogent3.load_aligned_seqs(path, moltype="dna")
-    return aln.rename_seqs(lambda x: x.replace("_", "-").split("-")[0].title())
+    return aln.renamed_seqs(lambda x: x.split("_")[0].title())
 
 
 def get_splits(path: os.PathLike) -> dict[str, Alignment]:
     partitions = parse_nexus_charsets(path.read_text())
-    splits = {name: aln[start:stop] for name, (start, stop) in partitions.items()}
-    return splits
+    return {name: aln[start:stop] for name, (start, stop) in partitions.items()}
 
 
 def write_sequences(
@@ -59,9 +58,6 @@ def write_sequences(
         )
 
         out += 1
-
-        # following line has no effect except if it fails, we've made a mistake
-        aln.get_translation(incomplete_ok=True)
 
         outpath = out_dir / f"{name}.fa"
         aln.write(outpath)
