@@ -8,9 +8,28 @@ min_length = get_app("min_length", 450)
 app = loader + min_length + tree_builder
 dstore = open_data_store("turtle_partitions", suffix="fa")
 
-trees = list(app.as_completed(dstore, parallel=True))
+trees = list(app.as_completed(dstore, parallel=True, show_progress=True))
 completeds = [t for t in trees if t]
 supertree = construct_supertree(completeds, pcg_weighting="branch")
 
 print(supertree)
 print(f"Omitted {len(trees) - len(completeds)} partitions due to length < 450")
+
+# the following is to compare against the published result of Chiari et al.
+import cogent3 as c3
+
+chiari_turtles = "(((Emys,Chelonoidis),Caretta),Phrynops)"
+chiari_crocs = "(Alligator,Caiman)"
+chiari_birds = "(Taeniopygia,Gallus)"
+chiari_rept = "((Anolis,Python),Podarcis)"
+chiari_mammals = "((Monodelphis,Homo),Ornithorhynchus)"
+chiari_nt = c3.make_tree(
+    f"(Protopterus,(Xenopus,({chiari_mammals},({chiari_rept},({chiari_birds},({chiari_crocs},{chiari_turtles}))))))"
+)
+if chiari_nt.unrooted().same_topology(supertree.unrooted()):
+    message = "DOES"
+else:
+    message = "DOES NOT"
+print(
+    f"\nThe unrooted supertree {message} match the unrooted topology of Chiari et al Fig 3b (tree from nucleotide data)."
+)
