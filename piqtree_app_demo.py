@@ -10,12 +10,11 @@ app = loader + min_length + tree_builder
 dstore = open_data_store("turtle_partitions", suffix="fa")
 
 trees = list(app.as_completed(dstore, parallel=True, show_progress=True))
-completeds = [t for t in trees if t]
-supertree = construct_supertree(completeds, pcg_weighting="branch", random_state=1)
+supertree = construct_supertree(trees, pcg_weighting="branch", random_state=1)
 
 print(supertree)
 print(
-    f"Omitted {len(trees) - len(completeds)} partitions due to length < {lower_length}"
+    f"Omitted {len(trees) - len([t for t in trees if t])} partitions due to length < {lower_length}"
 )
 
 # the following is to compare against the published result of Chiari et al.
