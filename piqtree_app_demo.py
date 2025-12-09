@@ -3,19 +3,18 @@ from sc_supertree import construct_supertree
 
 loader = get_app("load_aligned", moltype="dna")
 
-tree_builder = get_app("piq_build_tree", model="UNREST+FO")
+tree_builder = get_app("piq_build_tree", model="UNREST+FO", rand_seed=1)
 lower_length = 471
 min_length = get_app("min_length", subtract_degen=False, length=lower_length)
 app = loader + min_length + tree_builder
 dstore = open_data_store("turtle_partitions", suffix="fa")
 
 trees = list(app.as_completed(dstore, parallel=True, show_progress=True))
-completeds = [t for t in trees if t]
-supertree = construct_supertree(completeds, pcg_weighting="branch")
+supertree = construct_supertree(trees, pcg_weighting="branch", random_state=1)
 
 print(supertree)
 print(
-    f"Omitted {len(trees) - len(completeds)} partitions due to length < {lower_length}"
+    f"Omitted {len(trees) - len([t for t in trees if t])} partitions due to length < {lower_length}"
 )
 
 # the following is to compare against the published result of Chiari et al.
@@ -34,5 +33,5 @@ if chiari_nt.unrooted().same_topology(supertree.unrooted()):
 else:
     message = "DOES NOT"
 print(
-    f"\nThe unrooted supertree {message} match the unrooted topology of Chiari et al Fig 3b (tree from nucleotide data)."
+    f"\nThe unrooted supertree {message} match the unrooted topology of Chiari et al Fig 3b (tree from nucleotide data).",
 )

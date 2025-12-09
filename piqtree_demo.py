@@ -15,9 +15,9 @@ for aln_file in tqdm(list(aln_dir.glob("*.fa"))):
     if len(aln) < min_length:
         omitted += 1
         continue
-    trees.append(build_tree(aln, "UNREST+FO"))
+    trees.append(build_tree(aln, "UNREST+FO", rand_seed=1))
 
-supertree = construct_supertree(trees, pcg_weighting="branch")
+supertree = construct_supertree(trees, pcg_weighting="branch", random_state=1)
 
 print(supertree)
 print(f"Omitted {omitted} partitions due to length < {min_length}")
