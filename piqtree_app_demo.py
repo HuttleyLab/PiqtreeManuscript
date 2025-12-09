@@ -4,7 +4,8 @@ from sc_supertree import construct_supertree
 loader = get_app("load_aligned", moltype="dna")
 
 tree_builder = get_app("piq_build_tree", model="UNREST+FO")
-min_length = get_app("min_length", 450)
+lower_length = 471
+min_length = get_app("min_length", subtract_degen=False, length=lower_length)
 app = loader + min_length + tree_builder
 dstore = open_data_store("turtle_partitions", suffix="fa")
 
@@ -13,7 +14,9 @@ completeds = [t for t in trees if t]
 supertree = construct_supertree(completeds, pcg_weighting="branch")
 
 print(supertree)
-print(f"Omitted {len(trees) - len(completeds)} partitions due to length < 450")
+print(
+    f"Omitted {len(trees) - len(completeds)} partitions due to length < {lower_length}"
+)
 
 # the following is to compare against the published result of Chiari et al.
 import cogent3 as c3
