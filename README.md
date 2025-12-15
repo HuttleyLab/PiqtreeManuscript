@@ -1,6 +1,8 @@
+[![DOI](https://zenodo.org/badge/1017124544.svg)](https://doi.org/10.5281/zenodo.15875241)
+
 # piqtree-demo
 
-A demonstation as seen in the `piqtree` paper. To reproduce do as follows:
+A demonstation as seen in the `piqtree` [paper](https://www.biorxiv.org/lookup/doi/10.1101/2025.07.13.664626). To reproduce do as follows:
 
 ## Setup uv
 
@@ -16,6 +18,11 @@ The data the demo relies on can be extracted by running:
 
 ## Running the demo
 
-The demo can be run with the command:
+The demos can be run with the command:
 
-`uv run piqtree_demo.py`
+`uv run <script name>.py`
+
+For example
+
+`uv run piqtree_app__demo.py`
+

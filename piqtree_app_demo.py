@@ -28,6 +28,7 @@ chiari_mammals = "((Monodelphis,Homo),Ornithorhynchus)"
 chiari_nt = c3.make_tree(
     f"(Protopterus,(Xenopus,({chiari_mammals},({chiari_rept},({chiari_birds},({chiari_crocs},{chiari_turtles}))))))"
 )
+
 if chiari_nt.unrooted().same_topology(supertree.unrooted()):
     message = "DOES"
 else:
@@ -35,3 +36,9 @@ else:
 print(
     f"\nThe unrooted supertree {message} match the unrooted topology of Chiari et al Fig 3b (tree from nucleotide data).",
 )
+
+## The following is the other tree topology that we observed
+# alt_rept = "((Anolis,Podarcis),Python)"
+# alt_tree = c3.make_tree(
+#     f"(Protopterus,(Xenopus,({chiari_mammals},({alt_rept},({chiari_birds},({chiari_crocs},{chiari_turtles}))))))"
+# )
